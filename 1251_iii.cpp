@@ -66,9 +66,17 @@ int main()
 		int w;
 		char a[2], b[2];
 		Edge tmp;
+		for(int j=0; j<n; j++)
+		{
+			for(int k=0; k<n; k++)
+			{
+				inp[j][k] = Solution::inf;
+			}
+		}
 		for(int i=1; i<n; ++i)
 		{
 			scanf("%s%d", a, &m);
+			
 			for(int j=0; j<m; ++j)
 			{
 				scanf("%s%d", b, &w);
@@ -79,12 +87,8 @@ int main()
 				inp[tmp.to][tmp.from] = tmp.weight;
 			}
 		}
-
-
 		Solution sol;
 		cout << sol.prim(inp, n) << endl;
-
-		inp.clear();
 	}
 	return 0;
 }
